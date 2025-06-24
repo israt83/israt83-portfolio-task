@@ -6,7 +6,6 @@ import { useEffect } from "react";
 const Blog = () => {
       useEffect(() => {
     Aos.init({
-      once: true, // Optional: animation only once
       duration: 1500,
     });
   }, []);
@@ -34,7 +33,7 @@ const Blog = () => {
             className="block lg:grid lg:grid-cols-12 gap-6 group hover:no-underline focus:no-underline  text-white bg-zinc-800 rounded-lg overflow-hidden"
           >
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpDkwasyTqpD0IKvWiy0-r2zTxxeBps-rJ3jqr9071ydpX5fm2iv28YPQ0KZNtInqnjDI&usqp=CAU"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBYlo3sYrMYisLh-SVUEIpf4xfTkr6LByig_MR9vpXR-maiDs-t_3HS5kWTcLBFKQcZmw&usqp=CAU"
               alt="Portfolio blog"
               className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
             />

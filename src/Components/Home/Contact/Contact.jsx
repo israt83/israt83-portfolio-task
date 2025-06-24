@@ -28,20 +28,20 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_29i1m46", // Replace with your EmailJS Service ID
-        "template_hmy90v6", // Replace with your EmailJS Template ID
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
         },
-        "H8h2wvBotEDH92IXv" // Replace with your EmailJS Public Key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           alert("Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" }); // Reset form
+          setFormData({ name: "", email: "", message: "" }); 
         },
         (err) => {
           console.log("FAILED...", err);

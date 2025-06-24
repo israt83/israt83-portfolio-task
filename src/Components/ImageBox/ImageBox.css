@@ -1,68 +1,74 @@
-.imagebox {
-  background: #191c29;
-  width: var(--card-width);
-  height: var(--card-height);
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --imagecards-width: 90vw;
+  --imagecards-height: auto;
+}
+
+/* Container with animated border */
+.glowbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--imagecards-width);
+  max-width: 500px;
+  height: auto;
   padding: 3px;
+  border-radius: 16px;
+  z-index: 20;
+  background: linear-gradient(
+    45deg,
+    #FF3811,
+    #E6B615,
+    #B38E0F,
+    #8D6F0B,
+    #6A5508,
+    #503F06
+  );
+  background-size: 400% 400%;
+  animation: animateGlow 6s linear infinite;
+}
+
+/* Inner card block */
+.blockContentbox {
   position: relative;
-  border-radius: 6px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  font-size: 1.5em;
-  color: rgb(88 199 250 / 0%);
-  cursor: pointer;
-  font-family: cursive;
+  background-color: #000000;
+  border-radius: 12px;
+  padding: 2rem;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.imagebox:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-}
-
-.imagebox:hover::before,
-.imagebox:hover::after {
-  animation: none;
-  opacity: 0;
-}
-
-.imagebox::before {
+/* Optional blur */
+.glowbox::after {
   content: "";
-  width: 104%;
-  height: 102%;
-  border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
   position: absolute;
-  z-index: -1;
-  top: -1%;
-  left: -2%;
-  animation: spin 2.5s linear infinite;
-}
-
-.imagebox::after {
-  position: absolute;
-  content: "";
-  top: calc(var(--card-height) / 6);
+  top: 0;
   left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
-  opacity: 1;
-  transition: opacity 0.5s;
-  animation: spin 2.5s linear infinite;
+  height: 100%;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(20px);
+  z-index: -1;
 }
+
+/* Border animation */
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+

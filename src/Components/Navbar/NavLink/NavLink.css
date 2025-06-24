@@ -1,0 +1,72 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --navlink-height: 8vh;
+  --navlink-width: 62vh;
+}
+
+
+.navlink {
+  background: black;
+  width: var(--navlink-width);
+  height: var(--navlink-height);
+
+  position: relative;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+
+  cursor: pointer;
+
+}
+
+.navlink::before {
+  content: "";
+  width: 102%;
+  height: 102%;
+  border-radius: 25px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #FF3811,#E6B615);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -1%;
+    animation: spin 1.5s linear infinite;
+}
+
+.navlink::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--navlink-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--navlink-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    ,  #FF3811,  #E6B615);
+    opacity: 1;
+  transition: opacity .4s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+

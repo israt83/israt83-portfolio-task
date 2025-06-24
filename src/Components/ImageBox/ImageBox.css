@@ -1,65 +1,32 @@
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-:root {
-  --imagecards-width: 90vw;
-  --imagecards-height: auto;
-}
-
-/* Container with animated border */
-.glowbox {
+.glow-box {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: var(--imagecards-width);
-  max-width: 500px;
-  height: auto;
-  padding: 3px;
+  padding: 2px;
   border-radius: 16px;
-  z-index: 20;
   background: linear-gradient(
     45deg,
-    #FF3811,
-    #E6B615,
-    #B38E0F,
-    #8D6F0B,
-    #6A5508,
-    #503F06
+  
+     #FF3811,#E6B615 ,#FF3811,#B38E0F
   );
   background-size: 400% 400%;
-  animation: animateGlow 6s linear infinite;
+  animation: border-glow 2s ease infinite;
+  z-index: 10;
 }
 
-/* Inner card block */
-.blockContentbox {
-  position: relative;
-  background-color: #000000;
+.inner-box {
+  background-color: #000;
   border-radius: 12px;
-  padding: 2rem;
-  z-index: 1;
-  overflow: hidden;
+  padding: 1.5rem;
+  width: 90vw;
+  max-width: 450px;
+  text-align: center;
 }
 
-/* Optional blur */
-.glowbox::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: inherit;
-  filter: blur(20px);
-  z-index: -1;
-}
 
-/* Border animation */
-@keyframes animateGlow {
+
+@keyframes border-glow {
   0% {
     background-position: 0% 50%;
   }
@@ -70,5 +37,3 @@
     background-position: 0% 50%;
   }
 }
-
-

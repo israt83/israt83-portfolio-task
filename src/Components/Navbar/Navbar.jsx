@@ -9,6 +9,7 @@ import {
   FaTools,
   FaArrowDown,
   FaRegNewspaper,
+  FaTrophy,
 } from "react-icons/fa";
 import { FiMenu, FiPackage } from "react-icons/fi";
 import { Drawer, IconButton } from "@mui/material";
@@ -62,13 +63,14 @@ const Navbar = () => {
         <IconButton onClick={toggleMenu} className="text-white">
           <FiMenu className="text-white" size={35} />
         </IconButton>
-        <a
+         <a
           href="https://drive.google.com/file/d/1Zln3LulKz2Q_NmI2Ylc2s_W9VcUdp3Rt/view?usp=sharing"
           download="IsratJishaResume.pdf"
-          className="px-8 py-3 font-semibold border rounded border-yellow-500 text-yellow-500 uppercase"
+          className=" font-medium  text-white "
         >
-          <div className="flex space-x-2">
-            <span>Resume</span> <FaArrowDown className="mt-1" />
+          <div className="flex space-x-2 card">
+            <span className="text-xl ">Resume</span>{" "}
+            <FaArrowDown className="mt-1 " />
           </div>
         </a>
       </div>
@@ -79,7 +81,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center p-4 border-b border-gray-700">
             <span className="text-lg font-semibold">
               {" "}
-              <span className="bg-gradient-to-b from-[rgba(209,17,77,0.8)] to-[rgba(230,182,21,0.8)] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FF3811] via-[#E6B615] to-yellow-800 bg-[length:200%] bg-clip-text  text-transparent">
                 &lt;/Jisha&gt;
               </span>
             </span>
@@ -132,9 +134,9 @@ const navLinks = [
     label: "Blog",
   },
   {
-    to: "/mini-project",
-    icon: <FiPackage className="text-xl" />,
-    label: "mini-project",
+    to: "/achievements",
+    icon: <FaTrophy className="text-xl" />,
+    label: "Achievements",
   },
 ];
 

@@ -21,7 +21,7 @@ const Blog = () => {
       {/* Blog Section */}
       <section
        
-        className="py-16"
+        className="pb-8"
       >
         <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
           {/* Featured Blog Card */}
